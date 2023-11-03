@@ -10,8 +10,8 @@ workbook = openpyxl.Workbook()
 sheet = workbook.active
 
 # Agrega encabezados para tus columnas
-headers = ["Nombre", "Primer Apellido", "Segundo Apellido", "Fecha de Nacimiento", "Género", "Tipo de Documento",
-           "Código Postal", "Colonia", "Calle", "Número Exterior", "Número Interior", "Entre Calles",
+headers = ["Nombre", "Primer Apellido", "Segundo Apellido", "Fecha de Nacimiento", "Género","Pais", "Tipo de Documento",
+           "Código Postal", "Colonia", "Calle", "Número Exterior", "Entre Calles",
            "Correo Electrónico", "Confirmar Correo Electrónico", "Contraseña", "Lada", "Número de Celular"]
 
 sheet.append(headers)
@@ -22,13 +22,14 @@ for _ in range(10):
     primer_apellido = faker.last_name()
     segundo_apellido = faker.last_name()
     fecha_nacimiento = faker.date_of_birth(minimum_age=18)
+    fecha_nacimiento_str = fecha_nacimiento.strftime('%Y-%m-%d')
     genero = faker.random_int(min=1,max=3)
-    tipo_documento = 'Acta de Nacimiento'
+    pais = faker.random_int(min=1,max=21)
+    tipo_documento = faker.random_int(min=1,max=1)
     codigo_postal = faker.random_element(elements=('85210', '83280','85150'))
     colonia = faker.random_int(min=1,max=6)
     calle = faker.street_name()
     numero_exterior = str(randint(1, 100))
-    numero_interior = str(randint(1, 20)) if randint(1, 10) % 2 == 0 else ""
     entre_calles = faker.street_name() + " y " + faker.street_name()
     correo_electronico = faker.email()
     confirmar_correo = correo_electronico
@@ -40,8 +41,8 @@ for _ in range(10):
     
 
     # Agrega los datos generados a la fila
-    row = [nombre, primer_apellido, segundo_apellido, fecha_nacimiento, genero, tipo_documento,
-           codigo_postal, colonia, calle, numero_exterior, numero_interior, entre_calles,
+    row = [nombre, primer_apellido, segundo_apellido, fecha_nacimiento_str, genero, pais, tipo_documento,
+           codigo_postal, colonia, calle, numero_exterior,entre_calles,
            correo_electronico, confirmar_correo, contrasena, lada, numero_celular]
     sheet.append(row)
 
