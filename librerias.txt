@@ -1,0 +1,9 @@
+--Generar Excel Registros Aleatorios
+openpyxl             3.1.2
+Faker                19.12.0
+random               python
+
+--Registro Automatizado
+openpyxl             3.1.2
+selenium             4.13.0
+time                 python
