@@ -10,7 +10,7 @@ workbook = openpyxl.Workbook()
 sheet = workbook.active
 
 # Agrega encabezados para tus columnas
-headers = ["Nombre", "Primer Apellido", "Segundo Apellido", "Fecha de Nacimiento", "Género","Pais", "Tipo de Documento",
+headers = ["Curp", "Nombre", "Primer Apellido", "Segundo Apellido", "Fecha de Nacimiento", "Género","Pais", "Tipo de Documento",
            "Código Postal", "Colonia", "Calle", "Número Exterior", "Entre Calles",
            "Correo Electrónico", "Confirmar Correo Electrónico", "Contraseña", "Lada", "Número de Celular"]
 
@@ -18,6 +18,7 @@ sheet.append(headers)
 
 # Genera 10 registros ficticios y agrégalos al archivo Excel
 for _ in range(10):
+    curp = ''
     nombre = faker.first_name()
     primer_apellido = faker.last_name()
     segundo_apellido = faker.last_name()
@@ -41,7 +42,7 @@ for _ in range(10):
     
 
     # Agrega los datos generados a la fila
-    row = [nombre, primer_apellido, segundo_apellido, fecha_nacimiento_str, genero, pais, tipo_documento,
+    row = [curp, nombre, primer_apellido, segundo_apellido, fecha_nacimiento_str, genero, pais, tipo_documento,
            codigo_postal, colonia, calle, numero_exterior,entre_calles,
            correo_electronico, confirmar_correo, contrasena, lada, numero_celular]
     sheet.append(row)
