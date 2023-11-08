@@ -27,7 +27,7 @@ for _ in range(10):
     genero = faker.random_int(min=1,max=3)
     pais = faker.random_int(min=1,max=21)
     tipo_documento = faker.random_int(min=1,max=1)
-    codigo_postal = faker.random_element(elements=('85210', '83280','85150'))
+    codigo_postal = faker.random_element(elements=('83280','85150'))
     colonia = faker.random_int(min=1,max=6)
     calle = faker.street_name()
     numero_exterior = str(randint(1, 100))
