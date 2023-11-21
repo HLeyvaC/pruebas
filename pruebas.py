@@ -11,7 +11,7 @@ sheet = workbook['Sheet']
 # Inicializa el controlador del navegador (asegúrate de tener el controlador correspondiente instalado)
 driver = webdriver.Chrome()
 driver.maximize_window()
-driver.get('https://localhost:7244/usuarios/registrar') 
+driver.get('https://sidu.azurewebsites.net/usuarios/registrar') 
 
 for row in sheet.iter_rows(min_row=2, max_row=sheet.max_row):
     curp = row[0].value
@@ -59,6 +59,7 @@ for row in sheet.iter_rows(min_row=2, max_row=sheet.max_row):
         div.click()
         time.sleep(15)
         driver.find_element(By.CSS_SELECTOR, "#SelectColoniaId > div").click()
+        # driver.find_element(By.CSS_SELECTOR, "#SelectColoniaId > div > span > span.pc-element.pc-trigger").send_keys(colonia)
         time.sleep(3)
         driver.find_element(By.CSS_SELECTOR, "#calle").send_keys(calle)
         driver.find_element(By.CSS_SELECTOR, "#numeroExterior").send_keys(numero_exterior)
@@ -93,7 +94,7 @@ for row in sheet.iter_rows(min_row=2, max_row=sheet.max_row):
         time.sleep(15)
         driver.find_element(By.CSS_SELECTOR, "body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-actions > button.swal2-confirm.swal2-styled").click()
         time.sleep(7)
-        driver.find_element(By.CSS_SELECTOR, "#loginForm > div > div > div:nth-child(1) > div > div > div > div.col-sm-12 > p > a").click()
+        driver.find_element(By.CSS_SELECTOR, "#content > div > div > div > div:nth-child(1) > div > div > div.row > div:nth-child(2) > a").click()
 
         # Espera a que la página se cargue antes de continuar al siguiente registro
         driver.implicitly_wait(10)
