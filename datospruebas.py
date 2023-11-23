@@ -1,5 +1,6 @@
 import openpyxl
 from random import randint
+import random
 from faker import Faker
 
 # Crea un objeto Faker para generar datos ficticios
@@ -17,7 +18,7 @@ headers = ["Curp", "Nombre", "Primer Apellido", "Segundo Apellido", "Fecha de Na
 sheet.append(headers)
 
 # Genera 10 registros ficticios y agrégalos al archivo Excel
-for _ in range(10):
+for _ in range(11):
     curp = ''
     nombre = faker.first_name()
     primer_apellido = faker.last_name()
@@ -27,8 +28,8 @@ for _ in range(10):
     genero = faker.random_int(min=1,max=3)
     pais = faker.random_int(min=1,max=21)
     tipo_documento = faker.random_int(min=1,max=1)
-    codigo_postal = faker.random_element(elements=('83280','85150'))
-    colonia = faker.random_int(min=1,max=6)
+    codigo_postal = '85150'
+    colonia = 'Sochiloa'
     calle = faker.street_name()
     numero_exterior = str(randint(1, 100))
     entre_calles = faker.street_name() + " y " + faker.street_name()
@@ -37,7 +38,6 @@ for _ in range(10):
     contrasena = faker.password()
     lada = faker.random_int(min=1, max=21)
     numero_celular = faker.random_int(min=1000000000, max=9999999999)
-
     numero_celular = str(randint(1000000000, 9999999999))
     
 
